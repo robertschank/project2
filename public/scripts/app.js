@@ -68,6 +68,11 @@ function handleError(e) {
 	console.log('there was an error: e');
 }
 
+function synSuccess(json) {
+	console.log('synSuccess.');
+	console.log(json);
+}
+
 // This function determines the cursor's position in a string:
 (function ($, undefined) {
     $.fn.getCursorPosition = function() {
