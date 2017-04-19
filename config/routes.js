@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require("passport");
 var usersController = require('../controllers/users');
+var notesController = require('../controllers/notesController');
 var staticsController = require('../controllers/statics');
 
 function authenticatedUser(req, res, next) {
@@ -31,5 +32,8 @@ router.route('/login')
 
 router.route("/logout")
   .get(usersController.getLogout);
+
+router.route('/api/notes')
+  .get(notesController.getNotes);
 
 module.exports = router;
