@@ -1,6 +1,8 @@
 'use strict'
 let db = require('../models');
 
+console.log('In notesController');
+
 // INDEX
 const getNotes = function(req, res) {
 	console.log('IN GETNOTES X');

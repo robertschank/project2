@@ -13,6 +13,8 @@ let seedNotes = [
 	}
 ];
 
+
+
 db.Note.remove({}, function(err, notes) {
 	console.log('removed all notes in the name of SEED.');
 	db.Note.create(seedNotes, function(err, notes) {

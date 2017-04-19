@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const session      = require('express-session');
 
 // access database from index
-let db = require('./models');
+// let db = require('./models');
 // Express app called app
 let app = express();
 

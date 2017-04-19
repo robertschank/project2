@@ -8,6 +8,7 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var notesController = require('../controllers/notesController');
 var staticsController = require('../controllers/statics');
+var synonymsController = require('../controllers/synonymsController');
 
 function authenticatedUser(req, res, next) {
 	// If the user is authenticated, then we continue the execution
@@ -33,6 +34,9 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout);
 
+// Get Synonyms
+router.route('/api/syn/:_word')
+  .get(synonymsController.getSynonyms);
 
 // CREATE
 router.route('/api/notes/')
@@ -49,8 +53,6 @@ router.route('/api/notes')
 // SHOW
 router.route('/api/notes/:_id')
   .get(notesController.showNote);
-
-
 
 // EDIT
 

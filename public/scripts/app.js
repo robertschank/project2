@@ -20,6 +20,12 @@ $(document).ready(function(){
 		let textareaString = $('#textarea').val();
 		console.log('initial click char at pos: ' + textareaString.charAt(pos));
 		findWordAtPos(pos, textareaString);
+		$.ajax({
+			method: 'GET',
+			url: '/api/syn',
+			success: synSuccess,
+			error: synError
+		});
 	});
 });
 // ^^ End of document.ready ^^
