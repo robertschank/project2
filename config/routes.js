@@ -57,7 +57,8 @@ router.route('/api/notes/:_id')
 
 
 // UPDATE
-
+router.route('/api/notes/:_id')
+  .put(notesController.updateNote);
 
 
 // DESTROY

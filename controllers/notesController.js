@@ -31,6 +31,21 @@ const createNote = function(req, res) {
 	});
 };
 
+// UPDATE
+const updateNote = function(req, res) {
+	console.log('In updateNote');
+	let noteId = req.params._id;
+	db.Note.findById((noteId), function (err, note) {
+		note.title = req.body.title;
+		note.content =req.body.content;
+		note.rating = req.body.rating;
+		console.log('note' + JSON.stringify(note));
+		note.save(function(err) {
+			if (err) {res.send(err);}
+			res.json({note});
+		});
+	});
+};
 
 // DESTROY
 const destroyNote = function(req, res) {
@@ -45,5 +60,6 @@ module.exports = {
 	getNotes: getNotes,
 	getNoteById: getNoteById,
 	createNote: createNote,
+	updateNote: updateNote,
 	destroyNote: destroyNote,
 };
