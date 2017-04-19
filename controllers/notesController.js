@@ -9,7 +9,7 @@ const getNotes = function(req, res) {
 	});
 };
 // SHOW
-const getNoteById = function(req, res) {
+const showNote = function(req, res) {
 	console.log('In getNoteById');
 	let noteId = req.params._id;
 	db.Note.findById((noteId), function (err, note) {
@@ -58,7 +58,7 @@ const destroyNote = function(req, res) {
 
 module.exports = {
 	getNotes: getNotes,
-	getNoteById: getNoteById,
+	showNote: showNote,
 	createNote: createNote,
 	updateNote: updateNote,
 	destroyNote: destroyNote,

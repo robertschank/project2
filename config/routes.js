@@ -48,7 +48,7 @@ router.route('/api/notes')
 
 // SHOW
 router.route('/api/notes/:_id')
-  .get(notesController.getNoteById);
+  .get(notesController.showNote);
 
 
 
