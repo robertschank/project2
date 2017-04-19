@@ -33,7 +33,36 @@ router.route('/login')
 router.route("/logout")
   .get(usersController.getLogout);
 
+
+// CREATE
+router.route('/api/notes/')
+  .post(notesController.createNote);
+
+// INDEX
 router.route('/api/notes')
   .get(notesController.getNotes);
+
+// NEW
+// router.route('api/notes/new')
+//   .get(notesController.newNote);
+
+// SHOW
+router.route('/api/notes/:_id')
+  .get(notesController.getNoteById);
+
+
+
+// EDIT
+
+
+
+// UPDATE
+
+
+
+// DESTROY
+router.route('/api/notes/:_id')
+  .delete(notesController.destroyNote);
+
 
 module.exports = router;
