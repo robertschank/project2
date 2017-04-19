@@ -1,3 +1,42 @@
 <% include ./partials/header.ejs %>
-Welcome
+	<div class="col-md-6">
+		<form>
+		  <div class="form-group">
+				<div class="container">
+
+				<div class="btn-group">
+				  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Choose Objective <span class="caret"></span></button>
+				    <ul class="dropdown-menu">
+				      <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
+				      <li><input type="radio" id="ID" name="NAME" value="VALUE" checked><label for="ID">Label</label></li>
+				      <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
+				    </ul>
+				</div>
+
+
+				  <h2>Dropdowns</h2>
+				  <p>The .divider class is used to sneakily separate links in the dropdown menu.</p>
+				  <div class="dropdown">
+				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+				    	Choose Objective
+				    <span class="caret"></span></button>
+				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+				    	<li class="dropdown-header">Choose Objective</li>
+				    	<li role="presentation" class="divider"></li>
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Greeting</a></li>
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Distract</a></li>
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change Subject</a></li>
+				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Deflect Responsibility</a></li>
+				    </ul>
+				    <button id="insertSampleButton" type="button" class="btn btn-primary">Insert Sample</button>
+				  </div>
+				</div>
+		    <label for="exampleInputEmail1">Compose Message</label>
+		    <textarea class="form-control" rows="7">With the assistance of additional parties,</textarea>
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
 <% include ./partials/footer.ejs %>
+

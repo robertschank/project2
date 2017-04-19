@@ -8,8 +8,8 @@ const morgan       = require('morgan');
 const cookieParser = require('cookie-parser');
 const session      = require('express-session');
 
-mongoose.connect('mongodb://localhost/local-authentication-with-passport');
-
+// access database from index
+let db = require('./models');
 // Express app called app
 let app = express();
 
