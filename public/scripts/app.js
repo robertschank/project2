@@ -57,6 +57,7 @@ function findWordAtPos(pos, textareaString) {
 	return selectedWord;
 }
 
+
 // When index comes back:
 function insertSuccess(json) {
 	notes = json;
@@ -70,11 +71,13 @@ function handleError(e) {
 
 function synSuccess(json) {
 	console.log('synSuccess.');
-	console.log(json);
+	console.log('synSuccess json: ' + json);
+	console.log('Object.keys(json): ' + Object.keys(json));
+
 }
 
 function synError(e) {
-	console.log('ERROR IN APP.JS !!' + e);
+	console.log('ERROR IN APP.JS !!' + JSON.stringify(e));
 }
 
 // This function determines the cursor's position in the textfield
