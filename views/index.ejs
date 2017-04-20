@@ -1,20 +1,45 @@
 <% include ./partials/header.ejs %>
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<form>
 		  <div class="form-group">
 				<div class="container">
 
-				<div class="btn-group">
-				  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Choose Objective <span class="caret"></span></button>
-				    <ul class="dropdown-menu">
-				      <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
-				      <li><input type="radio" id="ID" name="NAME" value="VALUE" checked><label for="ID">Label</label></li>
-				      <li><input type="radio" id="ID" name="NAME" value="VALUE"><label for="ID">Label</label></li>
-				    </ul>
-				</div>
-
 				  <h2>Dropdowns</h2>
-				  <p>The .divider class is used to sneakily separate links in the dropdown menu.</p>
+
+					<!-- Split button -->
+					<div class="btn-group">
+					  <button type="button" class="btn btn-danger">Action</button>
+					  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    <span class="caret"></span>
+					    <span class="sr-only">Toggle Dropdown</span>
+					  </button>
+						<ul class="dropdown-menu">
+					    <li><a href="#">Action</a></li>
+					    <li><a href="#">Another action</a></li>
+					    <li><a href="#">Something else here</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="#">Separated link</a></li>
+					  </ul>
+					  <button type="button" class="btn btn-danger">section2</button>
+					</div>
+
+					<div class="btn-group" role="group" aria-label="...">
+					  <button type="button" class="btn btn-default">1</button>
+					  <button type="button" class="btn btn-default">2</button>
+
+					  <div class="btn-group" role="group">
+					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      Dropdown
+					      <span class="caret"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					      <li><a href="#">Dropdown link</a></li>
+					      <li><a href="#">Dropdown link</a></li>
+					    </ul>
+					  </div>
+					  <button type="button" class="btn btn-default">GO!</button>
+					</div>
+
 				  <div class="dropdown">
 				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
 				    	Choose Objective
@@ -23,7 +48,7 @@
 				    	<li class="dropdown-header">Choose Objective</li>
 				    	<li role="presentation" class="divider"></li>
 				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Greeting</a></li>
-				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Distract</a></li>
+				      <li role="presentation"><a role="menuitem" tabindex="1" href="#">Distract</a></li>
 				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change Subject</a></li>
 				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Deflect Responsibility</a></li>
 				    </ul>

@@ -72,7 +72,6 @@ function handleError(e) {
 function synSuccess(json) {
 	console.log('synSuccess.');
 	console.log('synSuccess json: ' + json);
-	console.log('Object.keys(json): ' + Object.keys(json));
 
 }
 
