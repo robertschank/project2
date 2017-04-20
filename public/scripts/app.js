@@ -19,10 +19,10 @@ $(document).ready(function(){
 		console.log('pos: ' + pos);
 		let textareaString = $('#textarea').val();
 		console.log('initial click char at pos: ' + textareaString.charAt(pos));
-		findWordAtPos(pos, textareaString);
+		let selectedWord = findWordAtPos(pos, textareaString);
 		$.ajax({
 			method: 'GET',
-			url: '/api/syn',
+			url: '/api/syn/' + selectedWord,
 			success: synSuccess,
 			error: synError
 		});
@@ -73,7 +73,11 @@ function synSuccess(json) {
 	console.log(json);
 }
 
-// This function determines the cursor's position in a string:
+function synError(e) {
+	console.log('ERROR IN APP.JS !!' + e);
+}
+
+// This function determines the cursor's position in the textfield
 (function ($, undefined) {
     $.fn.getCursorPosition = function() {
         var el = $(this).get(0);
