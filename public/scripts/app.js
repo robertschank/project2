@@ -1,8 +1,21 @@
 console.log("Sanity Check: JS is working!");
+let note = {
+	category: null,
+	textareaString: '',
+	author: '',
+};
 
 $(document).ready(function(){
+
+	$('.dropdown').click(function(event){
+		note.category = $(this).data("category");
+		console.log('category: ' + category); // Get the data-category
+		// set choose button to text category
+		$('#chooseButton').text($(this).text());
+  });
+
 	// insertnNoteButton click
-	$('#insertNoteButton').click(function() {
+	$('#insertButton').click(function() {
 		console.log('insertNoteButton CLICKED!');
 		// ajax call to get notes (INDEX)
 		$.ajax({

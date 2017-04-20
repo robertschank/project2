@@ -46,6 +46,10 @@ router.route('/api/notes/')
 router.route('/api/notes')
   .get(notesController.getNotes);
 
+// INDEX with category filter
+router.route('/api/notes/:category')
+  .get(notesController.getNotesByCategory);
+
 // NEW
 // router.route('api/notes/new')
 //   .get(notesController.newNote);

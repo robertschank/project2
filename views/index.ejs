@@ -3,60 +3,30 @@
 		<form>
 		  <div class="form-group">
 				<div class="container">
-
-				  <h2>Dropdowns</h2>
-
-					<!-- Split button -->
-					<div class="btn-group">
-					  <button type="button" class="btn btn-danger">Action</button>
-					  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					    <span class="caret"></span>
-					    <span class="sr-only">Toggle Dropdown</span>
-					  </button>
-						<ul class="dropdown-menu">
-					    <li><a href="#">Action</a></li>
-					    <li><a href="#">Another action</a></li>
-					    <li><a href="#">Something else here</a></li>
-					    <li role="separator" class="divider"></li>
-					    <li><a href="#">Separated link</a></li>
-					  </ul>
-					  <button type="button" class="btn btn-danger">section2</button>
+		    	<label for="note">Compose Message</label>
+					  <span class="">Insert Sample: </span>	
+						<div class="btn-group" role="group" aria-label="...">				  
+						  <div class="btn-group" role="group">
+						    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-success dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Choose Category
+						      <span class="caret"></span>
+						    </button>
+						    <ul class="dropdown-menu">
+						      <li class="dropdown" data-category="greeting" ><a href="#">Greeting</a></li>
+						      <li class="dropdown" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
+						      <li class="dropdown" data-category="buyTime" ><a href="#">Buy Time</a></li>
+						      <li class="dropdown" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
+						      <li class="dropdown" data-category="whatsUp" ><a href="#">What's Up?</a></li>
+						      <li class="dropdown" data-category="farewell" ><a href="#">Farewell</a></li>
+						      <li role="presentation" class="divider"></li>
+						      <li class="dropdown-header">Filters</li>
+						    </ul>
+						  </div>
+					  <button id="insertButton" type="button" class="btn btn-success">Insert</button>
+					  <button type="button" class="btn btn-danger disabled">Discard</button>
 					</div>
-
-					<div class="btn-group" role="group" aria-label="...">
-					  <button type="button" class="btn btn-default">1</button>
-					  <button type="button" class="btn btn-default">2</button>
-
-					  <div class="btn-group" role="group">
-					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					      Dropdown
-					      <span class="caret"></span>
-					    </button>
-					    <ul class="dropdown-menu">
-					      <li><a href="#">Dropdown link</a></li>
-					      <li><a href="#">Dropdown link</a></li>
-					    </ul>
-					  </div>
-					  <button type="button" class="btn btn-default">GO!</button>
-					</div>
-
-				  <div class="dropdown">
-				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-				    	Choose Objective
-				    <span class="caret"></span></button>
-				    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-				    	<li class="dropdown-header">Choose Objective</li>
-				    	<li role="presentation" class="divider"></li>
-				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Greeting</a></li>
-				      <li role="presentation"><a role="menuitem" tabindex="1" href="#">Distract</a></li>
-				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Change Subject</a></li>
-				      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Deflect Responsibility</a></li>
-				    </ul>
-				    <button id="insertNoteButton" type="button" class="btn btn-primary">Insert Sample</button>
-				  </div>
 				</div>
-		    <label for="exampleInputEmail1">Compose Message</label>
-		    <textarea id="textarea" class="form-control" rows="7">With the assistance of additional parties,</textarea>
+		    <textarea id="textarea" class="form-control" rows="7">With the assistance of additional parties, yes of course</textarea>
 		  </div>
 			<button id="testButton" type="button" class="btn btn-primary">TEST</button>
 		  <button id="submit" type="submit" class="btn btn-default">Submit</button>

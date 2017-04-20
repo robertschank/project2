@@ -10,6 +10,15 @@ const getNotes = function(req, res) {
 		res.json(notes);
 	});
 };
+
+const getNotesByCategory = function(req, res) {
+	console.log('In getNotesByCategory');
+	db.Note.find({category: greeting}, {skip: 0, limit: 1},
+		function(err, notes) {
+			res.json(notes)
+		}
+	);
+};
 // SHOW
 const showNote = function(req, res) {
 	console.log('In getNoteById');
@@ -60,6 +69,7 @@ const destroyNote = function(req, res) {
 
 module.exports = {
 	getNotes: getNotes,
+	getNotesByCategory: getNotesByCategory,
 	showNote: showNote,
 	createNote: createNote,
 	updateNote: updateNote,
