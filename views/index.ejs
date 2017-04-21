@@ -1,58 +1,54 @@
 <% include ./partials/header.ejs %>
-	<div class="col-md-12">
-		<!-- <form> -->
-		  <div class="form-group">
-				<div class="container">
-		    	<label for="note">Compose Message</label>
-					  <span class="">Insert Sample: </span>	
-						<div class="btn-group" role="group" aria-label="...">				  
-						  <div class="btn-group" role="group">
-						    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-success dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    Choose Category
-						      <span class="caret"></span>
-						    </button>
-						    <ul class="dropdown-menu">
-						      <li class="dropdown" data-category="greeting" ><a href="#">Greeting</a></li>
-						      <li class="dropdown" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
-						      <li class="dropdown" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
-						      <li class="dropdown" data-category="buyTime" ><a href="#">Buy Time</a></li>
-						      <li class="dropdown" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
-						      <li class="dropdown" data-category="whatsUp" ><a href="#">What's Up?</a></li>
-						      <li class="dropdown" data-category="farewell" ><a href="#">Farewell</a></li>						      
-						      <li role="presentation" class="divider"></li>
-						      <li class="dropdown-header">Filters</li>
-						    </ul>
-						  </div>
-					  <button id="insertButton" type="button" class="btn btn-success">Insert</button>
-					  <button type="button" class="btn btn-danger disabled">Discard</button>
-					</div>	
+
+<div class="container">
+	<div class="container">
+		<div class="row"></div>
+  	<label for="note">Compose Message</label>
+		  <span class="">Insert Sample: </span>	
+			<div class="btn-group" role="group" aria-label="...">				  
+			  <div class="btn-group" role="group">
+			    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-success dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Choose Category
+			    	<span class="caret"></span>
+			    </button>
+			    <ul class="dropdown-menu">
+			      <li class="dropdown" data-category="greeting" ><a href="#">Greeting</a></li>
+			      <li class="dropdown" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
+			      <li class="dropdown" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
+			      <li class="dropdown" data-category="buyTime" ><a href="#">Buy Time</a></li>
+			      <li class="dropdown" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
+			      <li class="dropdown" data-category="whatsUp" ><a href="#">What's Up?</a></li>
+			      <li class="dropdown" data-category="farewell" ><a href="#">Farewell</a></li>						      
+			      <li role="presentation" class="divider"></li>
+			      <li class="dropdown-header">Filters</li>
+			    </ul>
+			  </div>
+		  <button id="insertButton" type="button" class="btn btn-success" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View</button>
+		</div>
+		<div class="collapse" id="collapseExample">
+			<div class="row">
+				<div class="well col-sm-9">
+					<p>I like your raincoat bitch.<span> - anonymous</span></p>
+
 				</div>
-		    <textarea id="textarea" class="form-control" rows="7"></textarea>
-		  </div>
-
-
-
-			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-			Link with href
-			</a>
-			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-			Button with data-target
-			</button>
-			<div class="collapse" id="collapseExample">
-			<div class="well">
-			...
+				<div class="col-sm-3">
+					<a class="btn btn-success" type="button">Insert</a>	
+					<a class="btn btn-primary" type="button">Like</a>	
+					<a class="btn btn-success" type="button">Next Sample</a>				
+				</div>
 			</div>
+		</div>
+		<div>
+			<div>
+  			<textarea id="textarea" class="form-control" rows="9"></textarea>				
 			</div>
-
-
-
-
-
-
-		  
-			<a id="testButton" type="button" class="btn btn-primary">Test</a>
-		  <button id="submit" type="submit" class="btn btn-default">Submit</button>
-		<!-- </form> -->
+  		<div id="synonymsDiv" class="list-group">
+				<!-- SynsList Appended Here! -->
+			</div>
+		</div>
 	</div>
+	<a id="testButton" type="button" class="btn btn-primary">Test</a>
+  <button id="submit" type="submit" class="btn btn-default">Submit</button>
+</div>
 <% include ./partials/footer.ejs %>
 

@@ -26,7 +26,7 @@ const getSynonyms = function(req, res) {
 			}
 		});
 		console.log('  synonyms : ' + synonyms);
-		res.json(parsedBody);
+		res.json(synonyms);
 	});
 };
 

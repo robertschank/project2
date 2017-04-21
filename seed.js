@@ -16,7 +16,13 @@ let seedNotes = [
 		{
 		title: "",
 		category: "deflectResponsibility",
-		content: "With additional parties involved, yes.",
+		content: "I wouldn't think so.",
+		rating: 2,
+	},
+		{
+		title: "",
+		category: "deflectResponsibility",
+		content: "With the assistance of additional parties, ",
 		rating: 2,
 	},
 			{
@@ -77,6 +83,12 @@ let seedNotes = [
 		title: "",
 		category: "greeting",
 		content: "We are gathered here today, in ",
+		rating: 2,
+	},
+	{
+		title: "",
+		category: "deflectResponsibility",
+		content: "Personal stress and anxiety aside, that sounds nice.",
 		rating: 2,
 	},
 ];

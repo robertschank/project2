@@ -1,9 +1,18 @@
 console.log("Sanity Check: JS is working!");
+let tester = 'tester';
+
 let insertObj = {
 	category: null,
 	samples: [],
 	clickCount: 0,
 };
+
+let synObj = {
+	keyWord: '',
+	syns: [''],
+};
+
+myVar = 88;
 
 
 $(document).ready(function(){
@@ -43,7 +52,7 @@ $(document).ready(function(){
 		let textareaString = $('#textarea').val();
 		console.log('initial click char at pos: ' + textareaString.charAt(pos));
 		let selectedWord = findWordAtPos(pos, textareaString);
-				$(this).button('reset');
+		$(this).button('reset');
 		$.ajax({
 			method: 'GET',
 			url: '/api/syn/' + selectedWord,
@@ -78,6 +87,7 @@ function findWordAtPos(pos, textareaString) {
 		i++;
 	}
 	console.log('selectedWord: ' + selectedWord);
+	synObj.keyWord = selectedWord;
 	return selectedWord;
 }
 
@@ -114,6 +124,18 @@ function handleError(e) {
 function synSuccess(json) {
 	console.log('synSuccess.');
 	console.log('synSuccess json: ' + json);
+	console.log('synSuccess json[0]: ' + json[0]);
+	console.log('synSuccess json[1]: ' + json[1]);
+	synObj.syns = json;
+	console.log('synObj.synonyms[1]: ' + synObj.syns[1]);
+	$('.synList').remove();
+	let synArray = json;
+	let synListHTML = '';
+	synListHTML = '<a id="synList" href="#" class="list-group-item active synList">' + synObj.keyWord + '</a>'
+	for (let i = 0; i < 4 && i < synArray.length ; i++) {
+		synListHTML += '<a href="#" class="list-group-item synList">' + synArray[i] + '</a>'
+	}
+	$('#synonymsDiv').append(synListHTML);
 }
 
 function synError(e) {
@@ -122,18 +144,18 @@ function synError(e) {
 
 // This function determines the cursor's position in the textfield
 (function ($, undefined) {
-    $.fn.getCursorPosition = function() {
-        var el = $(this).get(0);
-        var pos = 0;
-        if('selectionStart' in el) {
-            pos = el.selectionStart;
-        } else if('selection' in document) {
-            el.focus();
-            var Sel = document.selection.createRange();
-            var SelLength = document.selection.createRange().text.length;
-            Sel.moveStart('character', -el.value.length);
-            pos = Sel.text.length - SelLength;
-        }
-        return pos;
-    };
+	$.fn.getCursorPosition = function() {
+	    var el = $(this).get(0);
+	    var pos = 0;
+	    if('selectionStart' in el) {
+	        pos = el.selectionStart;
+	    } else if('selection' in document) {
+	      el.focus();
+	      var Sel = document.selection.createRange();
+	      var SelLength = document.selection.createRange().text.length;
+	      Sel.moveStart('character', -el.value.length);
+	      pos = Sel.text.length - SelLength;
+	    }
+	    return pos;
+	};
 })(jQuery);
