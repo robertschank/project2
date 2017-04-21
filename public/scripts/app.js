@@ -36,12 +36,14 @@ $(document).ready(function(){
 
 	// testButton click
 	$('#testButton').click(function() {
+
 		console.log('insertNoteButton CLICKED!');
 		let pos =$('#textarea').getCursorPosition();
 		console.log('pos: ' + pos);
 		let textareaString = $('#textarea').val();
 		console.log('initial click char at pos: ' + textareaString.charAt(pos));
 		let selectedWord = findWordAtPos(pos, textareaString);
+				$(this).button('reset');
 		$.ajax({
 			method: 'GET',
 			url: '/api/syn/' + selectedWord,
