@@ -1,30 +1,39 @@
 console.log("Sanity Check: JS is working!");
-let note = {
+let insertObj = {
 	category: null,
-	textareaString: '',
-	author: '',
+	samples: [],
+	clickCount: 0,
 };
 
-$(document).ready(function(){
 
+$(document).ready(function(){
 	$('.dropdown').click(function(event){
-		note.category = $(this).data("category");
-		console.log('category: ' + category); // Get the data-category
-		// set choose button to text category
+		// reset clickCount if a new category is selected
+		if (insertObj.category !== $(this).data("category")) {
+			console.log('NEW CATEGORY');
+			clickCount = 0;
+		insertObj.category = $(this).data("category");
+		console.log('category: ' + insertObj.category); // Get the data-category
+		// set choose button to text category HTML
 		$('#chooseButton').text($(this).text());
+		}
   });
 
 	// insertnNoteButton click
 	$('#insertButton').click(function() {
 		console.log('insertNoteButton CLICKED!');
-		// ajax call to get notes (INDEX)
-		$.ajax({
-			method: 'GET',
-			url: '/api/notes',
-			success: insertSuccess,
-			error: handleError
-		});
+		if (insertObj.samples === []) {
+		// ajax call to getNotesbyCategory
+			$.ajax({
+				method: 'GET',
+				url: '/api/notes/' + insertObj.category,
+				success: insertSuccess,
+				error: handleError
+			});			
+		}
+
 	});
+
 	// testButton click
 	$('#testButton').click(function() {
 		console.log('insertNoteButton CLICKED!');
@@ -70,12 +79,30 @@ function findWordAtPos(pos, textareaString) {
 	return selectedWord;
 }
 
-
 // When index comes back:
 function insertSuccess(json) {
+	console.log('insertSuccess json: ' + JSON.stringify(json));
 	notes = json;
 	let textareaString = $('#textarea').val();
-	$('#textarea').val(textareaString + 'lasdfj' + notes[0].content);
+	// if this is the first click, insert notes[0].
+	if (insertObj.clickCount === 0) {
+		$('#textarea').val(textareaString + notes[insertObj.clickCount].content);
+		textareaString = $('#textarea').val();
+
+	} else {
+		// after first click, replace the preceding sample.
+		console.log('insertSuccess in else: ');
+		console.log("1: " + textareaString);
+		let currentSample = notes[insertObj.clickCount];
+		currentSample = "HO";
+		console.log("2: " + currentSample);
+		let currentSampleRegEx = new RegExp(textareaString,"g");
+		console.log("3: " + currentSampleRegEx);
+		textareaString = textareaString.replace(currentSampleRegEx, "What uup baby face.");
+		console.log("2" + textareaString);
+		$('#textarea').val(textareaString);
+	}
+	insertObj.clickCount++;
 }
 
 function handleError(e) {
@@ -85,7 +112,6 @@ function handleError(e) {
 function synSuccess(json) {
 	console.log('synSuccess.');
 	console.log('synSuccess json: ' + json);
-
 }
 
 function synError(e) {
@@ -107,5 +133,5 @@ function synError(e) {
             pos = Sel.text.length - SelLength;
         }
         return pos;
-    }
+    };
 })(jQuery);

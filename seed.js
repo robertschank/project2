@@ -8,7 +8,7 @@ let seedNotes = [
 		rating: 2,
 	},
 	{
-		title: "Get outta hur",
+		title: "",
 		category: "deflectResponsibility",
 		content: "Given the current president, that makes me uncomfortable.",
 		rating: 2,
@@ -28,7 +28,55 @@ let seedNotes = [
 	{
 		title: "",
 		category: "farewell",
-		content: "Ok, have a nice life!",
+		content: "Ok, have a nice life.",
+		rating: 2,
+	},
+	{
+		title: "",
+		category: "greeting",
+		content: "What's up Chuck?",
+		rating: 2,
+	},
+	{
+		title: "",
+		category: "deflectResponsibility",
+		content: "Thats an idea, ",
+		rating: 2,
+	},
+		{
+		title: "",
+		category: "farewell",
+		content: "Sayonara suckers, ",
+		rating: 2,
+	},
+		{
+		title: "",
+		category: "farewell",
+		content: "Peace be with you, ",
+		rating: 2,
+	},
+		{
+		title: "",
+		category: "soundsGood",
+		content: "Word to big bird.",
+		rating: 2,
+	},
+	{
+		title: "",
+		category: "soundsGood",
+		content: "Roger dodger",
+		rating: 2,
+	},
+		{
+		title: "",
+		category: "soundsGood",
+		content: "Sounds like a plan Stan.",
+		rating: 2,
+	},
+	{
+		title: "",
+		category: "greeting",
+		content: "We are gathered here today, in ",
 		rating: 2,
 	},
 ];

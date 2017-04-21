@@ -1,8 +1,6 @@
 'use strict'
 let db = require('../models');
 
-console.log('In notesController');
-
 // INDEX
 const getNotes = function(req, res) {
 	console.log('IN GETNOTES X');
@@ -13,12 +11,15 @@ const getNotes = function(req, res) {
 
 const getNotesByCategory = function(req, res) {
 	console.log('In getNotesByCategory');
-	db.Note.find({category: greeting}, {skip: 0, limit: 1},
+	const category = req.params.category;
+	db.Note.find({category: category}, {}, { limit: 30},
 		function(err, notes) {
-			res.json(notes)
+			console.log('in getNotesByCategory: notes: ' + notes);
+			res.json(notes);
 		}
 	);
 };
+
 // SHOW
 const showNote = function(req, res) {
 	console.log('In getNoteById');

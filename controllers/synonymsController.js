@@ -24,7 +24,6 @@ const getSynonyms = function(req, res) {
 					synonyms.push(parsedBody[key].syn[i]);
 				}				
 			}
-
 		});
 		console.log('  synonyms : ' + synonyms);
 		res.json(parsedBody);
