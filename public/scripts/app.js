@@ -12,9 +12,6 @@ let synObj = {
 	syns: [''],
 };
 
-myVar = 88;
-
-
 $(document).ready(function(){
 	$('.dropdown').click(function(event){
 		// reset clickCount if a new category is selected
@@ -41,6 +38,11 @@ $(document).ready(function(){
 			});			
 		}
 
+	});
+
+	$('#textareaDiv').click(function() {
+		console.log('HELLO from textareaDiv!');
+		
 	});
 
 	// testButton click
