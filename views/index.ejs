@@ -2,48 +2,50 @@
 
 <div class="container">
 	<div class="container">
-		<div class="row"></div>
-  	<label for="note">Compose Message</label>
-		  <span class="">Insert Sample: </span>	
-			<div class="btn-group" role="group" aria-label="...">				  
-			  <div class="btn-group" role="group">
-			    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-success dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Choose Category
-			    	<span class="caret"></span>
-			    </button>
-			    <ul class="dropdown-menu">
-			      <li class="dropdown" data-category="greeting" ><a href="#">Greeting</a></li>
-			      <li class="dropdown" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
-			      <li class="dropdown" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
-			      <li class="dropdown" data-category="buyTime" ><a href="#">Buy Time</a></li>
-			      <li class="dropdown" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
-			      <li class="dropdown" data-category="whatsUp" ><a href="#">What's Up?</a></li>
-			      <li class="dropdown" data-category="farewell" ><a href="#">Farewell</a></li>						      
-			      <li role="presentation" class="divider"></li>
-			      <li class="dropdown-header">Filters</li>
-			    </ul>
-			  </div>
-		  <button id="insertButton" type="button" class="btn btn-success" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View</button>
-		</div>
-		<div class="collapse" id="collapseExample">
-			<div class="row">
-				<div class="well col-sm-9">
-					<p>I like your raincoat bitch.<span> - anonymous</span></p>
+		<div class="row">
+	  	<label for="note" class="col-xs-6">Compose Message</label>
+			  <span class="">Insert Sample: </span>	
+				<div class="btn-group class="col-xs-6"" role="group" aria-label="...">				  
+				  <div class="btn-group" role="group">
+				    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-success dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Choose Category
+				    	<span class="caret"></span>
+				    </button>
+				    <ul class="dropdown-menu">
+				      <li class="dropdown" data-category="greeting" ><a href="#">Greeting</a></li>
+				      <li class="dropdown" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
+				      <li class="dropdown" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
+				      <li class="dropdown" data-category="buyTime" ><a href="#">Buy Time</a></li>
+				      <li class="dropdown" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
+				      <li class="dropdown" data-category="whatsUp" ><a href="#">What's Up?</a></li>
+				      <li class="dropdown" data-category="farewell" ><a href="#">Farewell</a></li>						      
+				      <li role="presentation" class="divider"></li>
+				      <li class="dropdown-header">Filters</li>
+				    </ul>
+				  </div>
+			  <button id="viewSampleButton" type="button" class="btn btn-success" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">View</button>
+			</div>
+			<div class="collapse" id="collapseExample">
+				<div class="row">
+					<div class="well col-sm-12">
+						<p>I like your raincoat, bitch.<span> - anonymous</span></p>
 
-				</div>
-				<div class="col-sm-6">
-					<a class="btn btn-success" type="button">Insert</a>	
-					<a class="btn btn-primary" type="button">Like</a>	
-					<a class="btn btn-success" type="button">Next Sample</a>				
+					</div>
+					<div class="col-sm-6">
+						<a class="btn btn-success" type="button">Insert</a>	
+						<a class="btn btn-primary" type="button">Like</a>	
+						<a class="btn btn-success" type="button">Next Sample</a>
+						<a class="btn btn-danger" type="button">Flag</a>				
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div id="textareaDiv" class="col-sm-6">
+				<div id="textareaDiv" class="col-xs-8">
 	  			<textarea id="textarea" class="form-control" rows="9"></textarea>				
 				</div>
-	  		<div id="synonymsDiv" class="list-group col-sm-4">
+	  		<div id="synonymsDiv" class="list-group col-xs-4">
 					<!-- SynsList Appended Here! -->
 				</div>
 			</div>			

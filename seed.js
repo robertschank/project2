@@ -91,6 +91,12 @@ let seedNotes = [
 		content: "Personal stress and anxiety aside, that sounds nice.",
 		rating: 2,
 	},
+	{
+		title: "",
+		category: "soundsGood",
+		content: "I concur.",
+		rating: 2,
+	},
 ];
 
 db.Note.remove({}, function(err, notes) {

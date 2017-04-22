@@ -1,7 +1,7 @@
 console.log("Sanity Check: JS is working!");
 let tester = 'tester';
 
-let insertObj = {
+let sampleObj = {
 	category: null,
 	samples: [],
 	clickCount: 0,
@@ -13,42 +13,56 @@ let synObj = {
 };
 
 $(document).ready(function(){
+	// When user selects a category from dropdown:
 	$('.dropdown').click(function(event){
 		// reset clickCount if a new category is selected
-		if (insertObj.category !== $(this).data("category")) {
+		if (sampleObj.category !== $(this).data("category")) {
 			console.log('NEW CATEGORY');
 			clickCount = 0;
-		insertObj.category = $(this).data("category");
-		console.log('category: ' + insertObj.category); // Get the data-category
+		sampleObj.category = $(this).data("category");
+		console.log('category: ' + sampleObj.category); // Get the data-category
 		// set choose button to text category HTML
 		$('#chooseButton').text($(this).text());
 		}
   });
 
-	// insertnNoteButton click
-	$('#insertButton').click(function() {
-		console.log('insertNoteButton CLICKED!');
-		if (insertObj.samples === []) {
+	// insertNoteButton click
+	$('#viewSampleButton').click(function() {
+		console.log('viewSampleButton CLICKED!');
+				console.log('sampleObj.samples.length: ' + sampleObj.samples.length);
+		if (sampleObj.samples.length === 0) {
 		// ajax call to getNotesbyCategory
+
+		console.log('calling ajax... ');
 			$.ajax({
 				method: 'GET',
-				url: '/api/notes/' + insertObj.category,
-				success: insertSuccess,
-				error: handleError
+				url: '/api/notes/' + sampleObj.category,
+				success: getNotesByCategorySuccess,
+				error: getNotesByCategoryError
 			});			
 		}
-
 	});
 
+	// When the text area is clicked	
 	$('#textareaDiv').click(function() {
 		console.log('HELLO from textareaDiv!');
-		
+		// store the value of string in the text area
+		let textareaString = $('#textarea').val();
+		// Find cursor position is text area
+		let pos =$('#textarea').getCursorPosition();
+
+		let selectedWord = findWordAtPos(pos, textareaString);
+		if (selectedWord.length === 0) {return console.log('no word selected');}
+		$.ajax({
+			method: 'GET',
+			url: '/api/syn/' + selectedWord,
+			success: synSuccess,
+			error: synError
+		});
 	});
 
 	// testButton click
 	$('#testButton').click(function() {
-
-		console.log('insertNoteButton CLICKED!');
 		let pos =$('#textarea').getCursorPosition();
 		console.log('pos: ' + pos);
 		let textareaString = $('#textarea').val();
@@ -94,20 +108,20 @@ function findWordAtPos(pos, textareaString) {
 }
 
 // When index comes back:
-function insertSuccess(json) {
+function getNotesByCategorySuccess(json) {
 	console.log('insertSuccess json: ' + JSON.stringify(json));
 	notes = json;
 	let textareaString = $('#textarea').val();
 	// if this is the first click, insert notes[0].
-	if (insertObj.clickCount === 0) {
-		$('#textarea').val(textareaString + notes[insertObj.clickCount].content);
+	if (sampleObj.clickCount === 0) {
+		$('#textarea').val(textareaString + notes[sampleObj.clickCount].content);
 		textareaString = $('#textarea').val();
 
 	} else {
 		// after first click, replace the preceding sample.
 		console.log('insertSuccess in else: ');
 		console.log("1: " + textareaString);
-		let currentSample = notes[insertObj.clickCount];
+		let currentSample = notes[sampleObj.clickCount];
 		currentSample = "HO";
 		console.log("2: " + currentSample);
 		let currentSampleRegEx = new RegExp(textareaString,"g");
@@ -116,28 +130,51 @@ function insertSuccess(json) {
 		console.log("2" + textareaString);
 		$('#textarea').val(textareaString);
 	}
-	insertObj.clickCount++;
+	sampleObj.clickCount++;
 }
 
-function handleError(e) {
+function getNotesByCategoryError(e) {
 	console.log('there was an error: e');
 }
 
 function synSuccess(json) {
 	console.log('synSuccess.');
-	console.log('synSuccess json: ' + json);
-	console.log('synSuccess json[0]: ' + json[0]);
-	console.log('synSuccess json[1]: ' + json[1]);
+	// set the returned synonyms to synObj
 	synObj.syns = json;
-	console.log('synObj.synonyms[1]: ' + synObj.syns[1]);
+	// clear the old synonyms from the DOM
 	$('.synList').remove();
-	let synArray = json;
+	// clear the old synonyms from synListHTML
 	let synListHTML = '';
-	synListHTML = '<a id="synList" href="#" class="list-group-item active synList">' + synObj.keyWord + '</a>'
-	for (let i = 0; i < 4 && i < synArray.length ; i++) {
-		synListHTML += '<a href="#" class="list-group-item synList">' + synArray[i] + '</a>'
+	// set the top list item
+	synListHTML = '<a id="synList" href="#" class="list-group-item active synList">' + synObj.keyWord + '</a>';
+	// loop through synonyms and add to synListHTML,
+	// we limit how many syns are added in the for loop
+	for (let i = 0; i < 8 && i < synObj.syns.length ; i++) {
+		synListHTML += '<a href="#" class="list-group-item synList synListItem">' + synObj.syns[i] + '</a>'
 	}
 	$('#synonymsDiv').append(synListHTML);
+
+	//When the user clicks on a syn:
+	$('.synListItem').click(function(event) {
+		console.log('synListItem CLICKED');
+		// grab the syn string value
+		let syn = $(this).text();
+		console.log('this.val' + syn);
+		// grab the current textareaString
+		let currentString = $('#textarea').val();
+		console.log('textareaString: ' + currentString);
+		// use regex to replace the keyWord with the selected syn
+		// If there are multiple instances of a keyWord, all get replaced
+		// even if the keyWord exists as part of another word (for example: is and this)
+		// TODO: only replace selected keyWord
+		let keyWordRegExp = new RegExp(synObj.keyWord, "g");
+		currentString = currentString.replace(keyWordRegExp, syn);
+		console.log('currentString: ' + currentString);
+		// put new string in the textarea!
+		$('#textarea').val(currentString);
+		// hide the syns
+		$('.synList').remove();
+	});
 }
 
 function synError(e) {
