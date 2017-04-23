@@ -22,7 +22,7 @@ let seedNotes = [
 		{
 		title: "",
 		category: "deflectResponsibility",
-		content: "With the assistance of additional parties, ",
+		content: "With additional parties involved, ",
 		rating: 2,
 	},
 			{

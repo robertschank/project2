@@ -17,23 +17,12 @@ $(document).ready(function(){
 	$('.dropdown').click(function(event){
 		// reset clickCount if a new category is selected
 		if (sampleObj.category !== $(this).data("category")) {
-			console.log('NEW CATEGORY');
-			clickCount = 0;
-		sampleObj.category = $(this).data("category");
-		console.log('category: ' + sampleObj.category); // Get the data-category
-		// set choose button to text category HTML
-		$('#chooseButton').text($(this).text());
-		}
-  });
-
-	// insertNoteButton click
-	$('#viewSampleButton').click(function() {
-		console.log('viewSampleButton CLICKED!');
-				console.log('sampleObj.samples.length: ' + sampleObj.samples.length);
-		if (sampleObj.samples.length === 0) {
-		// ajax call to getNotesbyCategory
-
-		console.log('calling ajax... ');
+			console.log('NEW CATEGORY SELECTED!');
+			sampleObj.category = $(this).data("category");
+			// set choose button to text category HTML
+			$('#chooseButton').text($(this).text());
+			// ajax call to getNotesbyCategory
+			console.log('calling ajax... ');
 			$.ajax({
 				method: 'GET',
 				url: '/api/notes/' + sampleObj.category,
@@ -41,6 +30,22 @@ $(document).ready(function(){
 				error: getNotesByCategoryError
 			});			
 		}
+	});
+
+	// viewSampleButton click
+	$('#viewSampleButton').click(function() {
+		console.log('viewSampleButton CLICKED!');
+	});
+
+	// NEXT SAMPLE BUTTON
+	$('#nextSampleButton').click(function() {
+		console.log('nextSampleButton clicked');
+		$('#sampleP').text(sampleObj.samples[sampleObj.clickCount].content);
+				sampleObj.clickCount++;
+		// if last sample is being viewed, reset click count.
+		console.log('sampleObj.clickCount' + sampleObj.clickCount);
+		console.log('sampleObj.samples.length' + sampleObj.samples.length);
+		if (sampleObj.clickCount >= sampleObj.samples.length) { sampleObj.clickCount = 0;}
 	});
 
 	// When the text area is clicked	
@@ -63,18 +68,6 @@ $(document).ready(function(){
 
 	// testButton click
 	$('#testButton').click(function() {
-		let pos =$('#textarea').getCursorPosition();
-		console.log('pos: ' + pos);
-		let textareaString = $('#textarea').val();
-		console.log('initial click char at pos: ' + textareaString.charAt(pos));
-		let selectedWord = findWordAtPos(pos, textareaString);
-		$(this).button('reset');
-		$.ajax({
-			method: 'GET',
-			url: '/api/syn/' + selectedWord,
-			success: synSuccess,
-			error: synError
-		});
 	});
 });
 // ^^ End of document.ready ^^
@@ -110,27 +103,11 @@ function findWordAtPos(pos, textareaString) {
 // When index comes back:
 function getNotesByCategorySuccess(json) {
 	console.log('insertSuccess json: ' + JSON.stringify(json));
-	notes = json;
-	let textareaString = $('#textarea').val();
-	// if this is the first click, insert notes[0].
-	if (sampleObj.clickCount === 0) {
-		$('#textarea').val(textareaString + notes[sampleObj.clickCount].content);
-		textareaString = $('#textarea').val();
-
-	} else {
-		// after first click, replace the preceding sample.
-		console.log('insertSuccess in else: ');
-		console.log("1: " + textareaString);
-		let currentSample = notes[sampleObj.clickCount];
-		currentSample = "HO";
-		console.log("2: " + currentSample);
-		let currentSampleRegEx = new RegExp(textareaString,"g");
-		console.log("3: " + currentSampleRegEx);
-		textareaString = textareaString.replace(currentSampleRegEx, "What uup baby face.");
-		console.log("2" + textareaString);
-		$('#textarea').val(textareaString);
-	}
-	sampleObj.clickCount++;
+	sampleObj.samples = json;
+	currentSample = sampleObj.samples[0];
+	$('#sampleP').text(currentSample.content);
+	// Successfully got new samples, set clickCount to 1 so the next sample viewed will be at index 1.
+	sampleObj.clickCount = 1;	
 }
 
 function getNotesByCategoryError(e) {
