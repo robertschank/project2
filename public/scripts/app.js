@@ -5,6 +5,7 @@ let sampleObj = {
 	category: null,
 	samples: [],
 	clickCount: 0,
+	current: '',
 };
 
 let synObj = {
@@ -40,12 +41,17 @@ $(document).ready(function(){
 	// NEXT SAMPLE BUTTON
 	$('#nextSampleButton').click(function() {
 		console.log('nextSampleButton clicked');
-		$('#sampleP').text(sampleObj.samples[sampleObj.clickCount].content);
-				sampleObj.clickCount++;
+		// set current sample based on click count
+		sampleObj.current = sampleObj.samples[sampleObj.clickCount];
+		$('#sampleP').text(sampleObj.current.content);
+		sampleObj.clickCount++;
 		// if last sample is being viewed, reset click count.
-		console.log('sampleObj.clickCount' + sampleObj.clickCount);
-		console.log('sampleObj.samples.length' + sampleObj.samples.length);
 		if (sampleObj.clickCount >= sampleObj.samples.length) { sampleObj.clickCount = 0;}
+	});
+
+	$('#insertSampleButton').click(function() {
+		console.log('insertSampleButton clicked');
+
 	});
 
 	// When the text area is clicked	
@@ -104,8 +110,9 @@ function findWordAtPos(pos, textareaString) {
 function getNotesByCategorySuccess(json) {
 	console.log('insertSuccess json: ' + JSON.stringify(json));
 	sampleObj.samples = json;
-	currentSample = sampleObj.samples[0];
-	$('#sampleP').text(currentSample.content);
+	sampleObj.current = sampleObj.samples[0];
+	console.log(sampleObj.current);
+	$('#sampleP').text(sampleObj.current.content);
 	// Successfully got new samples, set clickCount to 1 so the next sample viewed will be at index 1.
 	sampleObj.clickCount = 1;	
 }

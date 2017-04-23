@@ -5,3 +5,10 @@ p {
 	padding: 0;
 	margin: 0;
 }*/
+
+.navbar {
+	background-color: #f990e1;
+}
+.navbar-default .navbar-brand{
+	color: #fff;
+}
