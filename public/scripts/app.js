@@ -15,13 +15,13 @@ let synObj = {
 
 $(document).ready(function(){
 	// When user selects a category from dropdown:
-	$('.dropdown').click(function(event){
+	$('.chooseCategory').click(function(event){
 		// reset clickCount if a new category is selected
 		if (sampleObj.category !== $(this).data("category")) {
 			console.log('NEW CATEGORY SELECTED!');
 			sampleObj.category = $(this).data("category");
 			// set choose button to text category HTML
-			$('#chooseButton').text($(this).text());
+			$('#chooseButton').text(($(this).text()));
 			// ajax call to getNotesbyCategory
 			console.log('calling ajax... ');
 			$.ajax({
@@ -83,6 +83,14 @@ $(document).ready(function(){
 			success: synSuccess,
 			error: synError
 		});
+	});
+
+	//CONTRIBUTE BUTTON CLICK
+	$('#contributeButton').click(function() {
+		console.log('contributeButton click');
+		// get current textarea string
+		let textareaString = $('#textarea').val();
+		$('#modalP').text(textareaString);
 	});
 
 	// testButton click

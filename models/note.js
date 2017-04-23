@@ -4,6 +4,7 @@ let Schema = mongoose.Schema;
 
 let NoteSchema = new Schema({
 	title: String,
+	author: String,
 	category: String,
 	content: String,
 	rating: Number,
