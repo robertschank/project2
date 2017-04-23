@@ -12,6 +12,7 @@ const getNotes = function(req, res) {
 const getNotesByCategory = function(req, res) {
 	console.log('In getNotesByCategory');
 	const category = req.params.category;
+	// Here we limit how many notes we are going to send back
 	db.Note.find({category: category}, {}, { limit: 30},
 		function(err, notes) {
 			console.log('in getNotesByCategory: notes: ' + notes);
@@ -35,6 +36,8 @@ const createNote = function(req, res) {
 	console.log('req.body' + req.body);
 	db.Note.create({
 		title: req.body.title,
+		author: req.body.author,
+		category: req.body.category,
 		content: req.body.content,
 		rating: req.body.rating,
 	}, function (err, note) {

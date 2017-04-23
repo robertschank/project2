@@ -7,13 +7,13 @@
 			  <span class="">View Sample: </span>	
 				<div class="btn-group col-xs-6" role="group" aria-label="...">				  
 				  <div class="btn-group" role="group">
-				    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-primary dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-info dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    Choose Category
 				    	<span class="caret"></span>
 				    </button>
 						<% include ./partials/categoryUl.ejs %>
 				  </div>
-			  <button id="viewSampleButton" type="button" class="btn btn-primary" data-toggle="collapse" href="#collapseSample" aria-expanded="false" aria-controls="collapseExample">View</button>
+			  <button id="viewSampleButton" type="button" class="btn btn-info" data-toggle="collapse" href="#collapseSample" aria-expanded="false" aria-controls="collapseExample">View</button>
 			</div>
 					</div>
 			<div class="collapse" id="collapseSample">
@@ -22,9 +22,9 @@
 						<p id="sampleP">No samples found.<span> - anonymous</span></p>
 					</div>
 					<div class="col-sm-4">
-						<a id="insertSampleButton" class="btn btn-primary" type="button">Insert</a>	
-						<a class="btn btn-primary" type="button">Like</a>	
-						<a id="nextSampleButton" class="btn btn-primary" type="button">Next</a>
+						<a id="insertSampleButton" class="btn btn-info" type="button">Insert</a>	
+						<a class="btn btn-info" type="button">Like</a>	
+						<a id="nextSampleButton" class="btn btn-info" type="button">Next</a>
 						<a class="btn btn-danger" type="button">Flag</a>				
 					</div>
 				</div>
@@ -41,7 +41,6 @@
 			</div>			
 		</div>
 	</div>
-	<a id="testButton" type="button" class="btn btn-primary">Test</a>
 	<a id="contributeButton" type="button" class="btn btn-info" data-toggle="modal" data-target="#contributeModal">Contribute your sample</a>
   <button id="submit" type="submit" class="btn btn-default">Copy to Clipboard</button>
 </div>
@@ -58,7 +57,7 @@
 				<p id="modalP"></p>
 				<div class="btn-group col-xs-6" role="group" aria-label="...">				  
 				  <div class="btn-group" role="group">
-				    <button id="chooseButtonModal" type="button" class="btn btn-primary dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    <button id="chooseButtonModal" type="button" class="btn btn-info dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				    Choose Category
 				    	<span class="caret"></span>
 				    </button>
@@ -75,7 +74,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Contribute</button>
+				<button id="contributeButtonModal" type="button" class="btn btn-default" data-dismiss="modal">Contribute</button>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,4 @@
 console.log("Sanity Check: JS is working!");
-let tester = 'tester';
 
 let sampleObj = {
 	category: null,
@@ -11,6 +10,14 @@ let sampleObj = {
 let synObj = {
 	keyWord: '',
 	syns: [''],
+};
+
+let newNote = {
+	title: '',
+	author: '',
+	category: '',
+	content: '',
+	rating: 1,
 };
 
 $(document).ready(function(){
@@ -91,10 +98,32 @@ $(document).ready(function(){
 		// get current textarea string
 		let textareaString = $('#textarea').val();
 		$('#modalP').text(textareaString);
+		newNote.content = textareaString;
 	});
 
-	// testButton click
-	$('#testButton').click(function() {
+	// MODALDROP CLICK
+	$('.modalDrop').click(function(event) {
+		console.log('modalDrop Click!');
+		newNote.category = $(this).data("category");
+		$('#chooseButtonModal').text(($(this).text()));
+	});
+
+	//CONTRIBUTE BUTTON MODAL CLICK
+	$('#contributeButtonModal').click(function() {
+		console.log('contributeButtonModal Click!');
+		console.log(newNote);
+
+
+		$.ajax({
+			method: 'POST',
+			url: '/api/notes/',
+			data: newNote,
+			success: postNoteSuccess,
+			error: postNoteError,
+		});	
+
+
+
 	});
 });
 // ^^ End of document.ready ^^
@@ -184,6 +213,14 @@ function synSuccess(json) {
 
 function synError(e) {
 	console.log('ERROR IN APP.JS !!' + JSON.stringify(e));
+}
+
+function postNoteSuccess() {
+	console.log('postNoteSuccess.');
+}
+
+function postNoteError(e) {
+	console.log('postNoteError');
 }
 
 // This function determines the cursor's position in the textfield
