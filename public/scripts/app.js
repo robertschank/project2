@@ -34,6 +34,7 @@ $(document).ready(function(){
 	});
 
 	// viewSampleButton click
+	// Currently only toggles the collapse
 	$('#viewSampleButton').click(function() {
 		console.log('viewSampleButton CLICKED!');
 	});
@@ -49,9 +50,21 @@ $(document).ready(function(){
 		if (sampleObj.clickCount >= sampleObj.samples.length) { sampleObj.clickCount = 0;}
 	});
 
+	// INSERT SAMPLE BUTTON
 	$('#insertSampleButton').click(function() {
 		console.log('insertSampleButton clicked');
-
+		console.log(sampleObj.current.content);
+		// Get current text area string
+		let currentString = $('#textarea').val();
+		console.log(currentString);
+		// Get current cursor position
+		let pos =$('#textarea').getCursorPosition();
+		let newString = 
+				currentString.substr(0, pos)
+			+ sampleObj.current.content
+			+ currentString.substr(pos);
+		console.log(newString);
+		$('#textarea').val(newString);
 	});
 
 	// When the text area is clicked	
