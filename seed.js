@@ -93,6 +93,12 @@ let seedNotes = [
 	},
 	{
 		title: "",
+		category: "deflectResponsibility",
+		content: "I don't believe that's in my wheelhouse.",
+		rating: 2,
+	},
+	{
+		title: "",
 		category: "soundsGood",
 		content: "I concur.",
 		rating: 2,
