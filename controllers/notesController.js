@@ -9,6 +9,7 @@ const getNotes = function(req, res) {
 	});
 };
 
+// Get notes filtered by rec.params.category, limits results.
 const getNotesByCategory = function(req, res) {
 	console.log('In getNotesByCategory');
 	const category = req.params.category;
@@ -34,6 +35,7 @@ const showNote = function(req, res) {
 const createNote = function(req, res) {
 	console.log('IN createNote');
 	console.log('req.body' + req.body);
+
 	db.Note.create({
 		title: req.body.title,
 		author: req.body.author,
@@ -41,7 +43,6 @@ const createNote = function(req, res) {
 		content: req.body.content,
 		rating: req.body.rating,
 	}, function (err, note) {
-		console.log('in anonfumc!');
 		res.json(note);	
 	});
 };
@@ -71,6 +72,7 @@ const destroyNote = function(req, res) {
 	});
 };
 
+// Make each function available in routes.js
 module.exports = {
 	getNotes: getNotes,
 	getNotesByCategory: getNotesByCategory,
