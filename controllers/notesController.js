@@ -26,6 +26,7 @@ const getNotesByCategory = function(req, res) {
 const showNote = function(req, res) {
 	console.log('In getNoteById');
 	let noteId = req.params._id;
+	// Access single not by matching _id from req.params
 	db.Note.findById((noteId), function (err, note) {
 		res.json(note);
 	});
