@@ -12,7 +12,7 @@ let seedNotes = [
 		title: "",
 		author: "bobschank",
 		category: "deflectResponsibility",
-		content: "Given the current president, that makes me uncomfortable.",
+		content: "Given the state of the Union, that makes me uncomfortable.",
 		rating: 2,
 	},
 	{

@@ -51,8 +51,6 @@ router.route('/api/notes/:category')
   .get(notesController.getNotesByCategory);
 
 // NEW
-// router.route('api/notes/new')
-//   .get(notesController.newNote);
 
 // SHOW
 router.route('/api/notes/:_id')

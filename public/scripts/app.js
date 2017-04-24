@@ -112,8 +112,6 @@ $(document).ready(function(){
 	$('#contributeButtonModal').click(function() {
 		console.log('contributeButtonModal Click!');
 		console.log(newNote);
-
-
 		$.ajax({
 			method: 'POST',
 			url: '/api/notes/',
@@ -121,9 +119,6 @@ $(document).ready(function(){
 			success: postNoteSuccess,
 			error: postNoteError,
 		});	
-
-
-
 	});
 });
 // ^^ End of document.ready ^^

@@ -33,7 +33,12 @@
 		<div class="container">
 			<div class="row">
 				<div id="textareaDiv" class="col-xs-8">
-	  			<textarea id="textarea" class="form-control" rows="9"></textarea>				
+					<div class="row">
+	  				<textarea id="textarea" class="form-control col-xs-12" rows="9"></textarea>	
+	  									<a id="contributeButton" type="button" class="btn btn-info" data-toggle="modal" data-target="#contributeModal">Contribute your sample</a>
+  <button id="submit" type="submit" class="btn btn-default">Copy to Clipboard</button>		
+					</div>
+			
 				</div>
 	  		<div id="synonymsDiv" class="list-group col-xs-4">
 					<!-- SynsList Appended Here! -->
@@ -41,8 +46,7 @@
 			</div>			
 		</div>
 	</div>
-	<a id="contributeButton" type="button" class="btn btn-info" data-toggle="modal" data-target="#contributeModal">Contribute your sample</a>
-  <button id="submit" type="submit" class="btn btn-default">Copy to Clipboard</button>
+
 </div>
 
 <div class="modal fade" role="dialog" id="contributeModal">
