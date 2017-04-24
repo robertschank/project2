@@ -7,6 +7,7 @@ const flash        = require('connect-flash');
 const morgan       = require('morgan');
 const cookieParser = require('cookie-parser');
 const session      = require('express-session');
+require('dotenv').config();
 
 // access database from index
 // let db = require('./models');

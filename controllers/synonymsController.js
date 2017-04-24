@@ -1,6 +1,9 @@
 'use strict'
 let request = require('request');
-let apiKey = require('../env.js');
+
+// let apiKey = require('../env.js');
+const apiKey = process.env.API_KEY;
+console.log('XXXX API_KEY: ' + apiKey);
 
 const getSynonyms = function(req, res) {
 	let parsedBody = {};
