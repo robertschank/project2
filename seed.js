@@ -11,14 +11,7 @@ let seedNotes = [
 	{
 		title: "",
 		author: "bobschank",
-		category: "deflectResponsibility",
-		content: "This makes me uncomfortable.",
-		rating: 2,
-	},
-	{
-		title: "",
-		author: "bobschank",
-		category: "deflectResponsibility",
+		category: "detach",
 		content: "I wouldn't think so.",
 		rating: 2,
 	},
@@ -53,7 +46,7 @@ let seedNotes = [
 	{
 		title: "",
 		author: "bobschank",
-		category: "deflectResponsibility",
+		category: "detach",
 		content: "With additional parties involved, ",
 		rating: 2,
 	},
@@ -81,7 +74,7 @@ let seedNotes = [
 	{
 		title: "",
 		author: "bobschank",
-		category: "deflectResponsibility",
+		category: "detach",
 		content: "Thats an idea, ",
 		rating: 2,
 	},
@@ -130,14 +123,14 @@ let seedNotes = [
 	{
 		title: "",
 		author: "bobschank",
-		category: "deflectResponsibility",
-		content: "Personal stress and anxiety aside, that sounds nice.",
+		category: "detach",
+		content: "Personal discomfort aside, that sounds nice.",
 		rating: 2,
 	},
 	{
 		title: "",
 		author: "bobschank",
-		category: "deflectResponsibility",
+		category: "detach",
 		content: "I don't believe that's in my wheelhouse.",
 		rating: 2,
 	},

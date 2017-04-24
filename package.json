@@ -1,6 +1,9 @@
 {
   "name": "project2",
   "version": "1.0.0",
+  "engines": {
+    "npm": "4.1.2"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
