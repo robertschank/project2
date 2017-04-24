@@ -3,54 +3,52 @@
 <!-- <div class="container"> -->
 	<div class="container">
 		<div class="row">
-	  	<label for="note" class="col-xs-6">Compose Message</label>
 			  <span class="">View Sample: </span>	
-				<div class="btn-group col-xs-6" role="group" aria-label="...">				  
+				<div class="btn-group col-xs-12" role="group" aria-label="...">				  
 				  <div class="btn-group" role="group">
 				    <button id="chooseButton" type="button" text="asdfasfd" class="btn btn-info dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Choose Category
-				    	<span class="caret"></span>
+					    Choose Category
+					    <span class="caret"></span>
 				    </button>
-						<% include ./partials/categoryUl.ejs %>
+					<% include ./partials/categoryUl.ejs %>
 				  </div>
 			  <button id="viewSampleButton" type="button" class="btn btn-info" data-toggle="collapse" href="#collapseSample" aria-expanded="false" aria-controls="collapseExample">View</button>
 			</div>
-					</div>
-			<div class="collapse" id="collapseSample">
-				<div class="row">
-					<div class="container">
-						<div class="well col-sm-8">
-							<p id="sampleP">Try choosing a category.<span> - anonymous</span></p>
-						</div>				
-					</div>
-					<div class="col-sm-4 wellbuttons">
-						<a id="insertSampleButton" class="btn btn-info" type="button">Insert</a>	
-						<a id="nextSampleButton" class="btn btn-info" type="button">Next</a>
-						<a class="btn btn-info" type="button">Like</a>	
-						<a class="btn btn-danger" type="button">Flag</a>				
-					</div>
+		</div>
+		<div class="collapse" id="collapseSample">
+			<div class="row">
+				<div class="container">
+					<div class="well col-sm-8">
+						<span id="sampleP">Try choosing a category.</span><span>  - </span><span id="sampleS" class="sampleS"></span>
+					</div>				
+				</div>
+				<div class="col-sm-4 wellbuttons">
+					<a id="insertSampleButton" class="btn btn-info" type="button">Insert</a>	
+					<a id="nextSampleButton" class="btn btn-info" type="button">Next</a>
+					<a class="btn btn-info" type="button">Like</a>	
+					<a class="btn btn-danger" type="button">Flag</a>				
 				</div>
 			</div>
-
+		</div>
 		<div class="container">
+			<p>Compose Message</p>
 			<div class="row">
 				<div id="textareaDiv" class="col-xs-8">
 					<div class="row">
-	  				<textarea id="textarea" class="form-control col-xs-12" rows="9"></textarea>	
-	  									<a id="contributeButton" type="button" class="btn btn-info" data-toggle="modal" data-target="#contributeModal">Contribute your sample</a>
-  <button id="submit" type="submit" class="btn btn-default">Copy to Clipboard</button>		
+		  				<textarea id="textarea" class="form-control col-xs-12" rows="9"></textarea>	
+		  				<a id="contributeButton" type="button" class="btn btn-info" data-toggle="modal" data-target="#contributeModal">Contribute your sample</a>
+	  					<button id="submit" type="submit" class="btn btn-default">Copy to Clipboard</button>		
 					</div>
-			
 				</div>
-	  		<div id="synonymsDiv" class="list-group col-xs-4">
+	  			<div id="synonymsDiv" class="list-group col-xs-4">
 					<!-- SynsList Appended Here! -->
 				</div>
 			</div>			
 		</div>
 	</div>
-
 </div>
 
+<!-- Modal -->
 <div class="modal fade" role="dialog" id="contributeModal">
 	<div class="modal-dialog">
 		<!-- content -->
@@ -62,21 +60,21 @@
 			<div class="modal-body">
 				<p id="modalP"></p>
 				<div class="btn-group col-xs-6" role="group" aria-label="...">				  
-				  <div class="btn-group" role="group">
-				    <button id="chooseButtonModal" type="button" class="btn btn-info dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Choose Category
-				    	<span class="caret"></span>
-				    </button>
+				  	<div class="btn-group" role="group">
+					    <button id="chooseButtonModal" type="button" class="btn btn-info dropdown-toggle" value="Choose Category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    	Choose Category
+					    	<span class="caret"></span>
+					    </button>
 						<ul class="dropdown-menu">
-						  <li class="dropdown modalDrop" data-category="greeting" ><a href="#">Greeting</a></li>
-						  <li class="dropdown modalDrop" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
-						  <li class="dropdown modalDrop" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
-						  <li class="dropdown modalDrop" data-category="buyTime" ><a href="#">Buy Time</a></li>
-						  <li class="dropdown modalDrop" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
-						  <li class="dropdown modalDrop" data-category="whatsUp" ><a href="#">What's Up?</a></li>
-						  <li class="dropdown modalDrop" data-category="farewell" ><a href="#">Farewell</a></li>						      
+							<li class="dropdown modalDrop" data-category="greeting" ><a href="#">Greeting</a></li>
+							<li class="dropdown modalDrop" data-category="hurryUp" ><a href="#">Hurry Up</a></li>
+							<li class="dropdown modalDrop" data-category="soundsGood" ><a href="#">Sounds Good</a></li>
+							<li class="dropdown modalDrop" data-category="buyTime" ><a href="#">Buy Time</a></li>
+							<li class="dropdown modalDrop" data-category="deflectResponsibility" ><a href="#">Deflect Responsibility</a></li>
+							<li class="dropdown modalDrop" data-category="whatsUp" ><a href="#">What's Up?</a></li>
+							<li class="dropdown modalDrop" data-category="farewell" ><a href="#">Farewell</a></li>      
 						</ul>
-				  </div>
+				  	</div>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -84,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-<!-- </div> -->
+</div>
 
 
 <% include ./partials/footer.ejs %>

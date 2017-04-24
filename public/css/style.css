@@ -5,12 +5,16 @@ p {
 	padding: 0;
 	margin: 0;
 }*/
-
+.sampleS {
+	color: #777777;
+	font-style: italic;
+}
 .navbar {
 	background-color: #ff87a7;
 }
 .navbar-default .navbar-brand{
 	color: #fff;
+	padding-left: 50px;
 }
 .well{
 	margin-bottom: 1px;

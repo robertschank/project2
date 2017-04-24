@@ -12,7 +12,7 @@ let seedNotes = [
 		title: "",
 		author: "bobschank",
 		category: "deflectResponsibility",
-		content: "Given the state of the Union, that makes me uncomfortable.",
+		content: "This makes me uncomfortable.",
 		rating: 2,
 	},
 	{
@@ -36,14 +36,28 @@ let seedNotes = [
 		content: "The beers are waiting..",
 		rating: 2,
 	},
-		{
+	{
+		title: "",
+		author: "bobschank",
+		category: "buyTime",
+		content: "Your horses, hold 'em.",
+		rating: 3,
+	},
+	{
+		title: "",
+		author: "bobschank",
+		category: "buyTime",
+		content: "Let's pump the brakes.",
+		rating: 3,
+	},
+	{
 		title: "",
 		author: "bobschank",
 		category: "deflectResponsibility",
 		content: "With additional parties involved, ",
 		rating: 2,
 	},
-			{
+	{
 		title: "",
 		author: "bobschank",
 		category: "farewell",

@@ -156,8 +156,9 @@ function getNotesByCategorySuccess(json) {
 	console.log('insertSuccess json: ' + JSON.stringify(json));
 	sampleObj.samples = json;
 	sampleObj.current = sampleObj.samples[0];
-	console.log(sampleObj.current);
+	console.log('XXX' + sampleObj.current.author);
 	$('#sampleP').text(sampleObj.current.content);
+	$('#sampleS').text(sampleObj.current.author);
 	// Successfully got new samples, set clickCount to 1 so the next sample viewed will be at index 1.
 	sampleObj.clickCount = 1;	
 }

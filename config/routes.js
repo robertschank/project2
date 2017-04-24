@@ -39,8 +39,9 @@ router.route('/api/syn/:_word')
   .get(synonymsController.getSynonyms);
 
 // CREATE
+// Only available if user is logged in
 router.route('/api/notes/')
-  .post(notesController.createNote);
+  .post(authenticatedUser, notesController.createNote);
 
 // INDEX
 router.route('/api/notes')
@@ -50,15 +51,9 @@ router.route('/api/notes')
 router.route('/api/notes/:category')
   .get(notesController.getNotesByCategory);
 
-// NEW
-
 // SHOW
 router.route('/api/notes/:_id')
   .get(notesController.showNote);
-
-// EDIT
-
-
 
 // UPDATE
 router.route('/api/notes/:_id')
