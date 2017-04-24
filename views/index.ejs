@@ -1,6 +1,6 @@
 <% include ./partials/header.ejs %>
 
-<div class="container">
+<!-- <div class="container"> -->
 	<div class="container">
 		<div class="row">
 	  	<label for="note" class="col-xs-6">Compose Message</label>
@@ -18,13 +18,15 @@
 					</div>
 			<div class="collapse" id="collapseSample">
 				<div class="row">
-					<div class="well col-sm-8">
-						<p id="sampleP">No samples found.<span> - anonymous</span></p>
+					<div class="container">
+						<div class="well col-sm-8">
+							<p id="sampleP">Try choosing a category.<span> - anonymous</span></p>
+						</div>				
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-4 wellbuttons">
 						<a id="insertSampleButton" class="btn btn-info" type="button">Insert</a>	
-						<a class="btn btn-info" type="button">Like</a>	
 						<a id="nextSampleButton" class="btn btn-info" type="button">Next</a>
+						<a class="btn btn-info" type="button">Like</a>	
 						<a class="btn btn-danger" type="button">Flag</a>				
 					</div>
 				</div>
@@ -82,7 +84,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 
 
 <% include ./partials/footer.ejs %>

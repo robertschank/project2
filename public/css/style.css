@@ -12,3 +12,15 @@ p {
 .navbar-default .navbar-brand{
 	color: #fff;
 }
+.well{
+	margin-bottom: 1px;
+}
+.wellbuttons{
+	padding-bottom: 10px;
+}
+body {
+	/*background-color: red;*/
+}
+.container {
+	/*background-color: yellow;*/
+}
