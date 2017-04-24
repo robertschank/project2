@@ -14,7 +14,8 @@ p {
 }
 .navbar-default .navbar-brand{
 	color: #fff;
-	padding-left: 50px;
+	padding-left: 40px;
+	font-size: 26px;
 }
 .well{
 	margin-bottom: 1px;
