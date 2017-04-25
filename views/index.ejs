@@ -2,14 +2,6 @@
 
 <!-- <div class="container"> -->
 	<div class="container">
-
-<% if (!currentUser) { %>
-	<div class="alert alert-danger">Login to contribute sample</div>
-<% } %>
-
-
-
-
 		<div class="row">
 			  <span class="">Check out some samples: </span>	
 				<div class="btn-group col-xs-12" role="group" aria-label="...">				  
@@ -64,6 +56,9 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times</button>
 				<h4 class="modal-title">Contribute your sample to Single Draft!</h4>
+				<% if (!currentUser) { %>
+					<div class="alert alert-danger">Login to contribute sample</div>
+				<% } %>
 			</div>
 			<div class="modal-body">
 				<p id="modalP"></p>

@@ -12,11 +12,19 @@ p {
 .navbar {
 	background-color: #ff87a7;
 }
+.navi {
+	color: #fff;
+}
+
 .navbar-default .navbar-brand{
 	color: #fff;
 	padding-left: 40px;
 	font-size: 26px;
 }
+.navbar-default .navbar-nav>li>a{
+	color: #fff;
+}
+
 .well{
 	margin-bottom: 1px;
 }
